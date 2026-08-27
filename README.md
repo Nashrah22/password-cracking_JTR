@@ -111,16 +111,16 @@ Unlocked each PDF using its recovered password and confirmed success by capturin
 | File | Password Recovered | Flag / Outcome |
 |---|---|---|
 | My Locked PDF1.pdf | `good-luck` | `nw{cybersecurity_flag_captured_2608}` |
-| My Locked PDF2.pdf | `password1` | Flag captured |
+| My Locked PDF2.pdf | `password1` | `nw{networkwalks_persistence_jtr_270521}` |
 | My Locked PDF3.pdf | `1qaz2wsx` | `nw{networkwalks_flag_260821_1}` |
 
 ### Step 6 &middot; Cross-Check the Concepts with Networkwalks' Web Tools
 
-Used Networkwalks Academy's own browser-based labs to independently verify the hashing and dictionary-attack concepts used above, entirely client-side, with no data leaving the browser.
+Used Networkwalks Academy's own browser-based labs to independently verify the hashing and dictionary-attack concepts used above, entirely client-side, with no data leaving the browser. The Password Cracker tool was run against the same PDF hash and successfully recovered the password `good-luck` using its built-in wordlist, confirming the result obtained earlier with John the Ripper.
 
 ![Networkwalks Hash Calculator tool](screenshots/10-hash-calculator.jpeg)
 
-![Networkwalks Password Cracker dictionary-attack lab](screenshots/11-password-cracker-lab.jpeg)
+![Networkwalks Password Cracker successfully recovering the PDF2 password via built-in wordlist](screenshots/11-password-cracker-lab.jpeg)
 
 ---
 
@@ -158,6 +158,14 @@ python3 hexstrike_server.py
 
 With the server active and registered, Claude Desktop can now call HexStrike AI's tooling directly as part of a natural-language security workflow, bridging AI-assisted reasoning with real offensive security tools.
 
+### Step 4 &middot; Drive John the Ripper Through Claude via MCP
+
+To close the loop between Part 1 and Part 2, Claude was asked, through the live HexStrike MCP connection, to confirm whether John the Ripper was available inside the HexStrike environment, report its exact version, and prepare a hash calculation for another locked PDF. Claude queried the connected HexStrike server directly, confirmed John the Ripper was installed via a health check, and returned the exact version string, the same tool used manually in Part 1, now reachable through a natural-language request instead of a typed command.
+
+![Claude confirming John the Ripper is installed and available via the HexStrike MCP connection](screenshots/15-claude-jtr-check.jpeg)
+
+This demonstrates the practical result of the MCP setup: the same password-recovery tooling used by hand earlier in this module can now be driven conversationally through Claude, with HexStrike AI acting as the bridge between natural language and the underlying security tools.
+
 ---
 
 ## What I Learned
@@ -193,12 +201,16 @@ All files cracked in this exercise were provided as part of an authorized, sandb
 
 ## Author
 
-**Nashrah Bashir**
-Cybersecurity Intern &middot; Batch B082
-Networkwalks Academy
-Mentor: Waqas Karim (CCIE)
+<div align="center">
 
-LinkedIn: [View Profile](https://www.linkedin.com/in/nashrah-bashir/)
+**Nashrah Bashir**
+Cybersecurity Intern &middot; Batch B082 &middot; Networkwalks Academy
+
+Mentor: **Waqas Karim (CCIE)**
+
+[LinkedIn &middot; Nashrah Bashir](https://www.linkedin.com/in/nashrah-bashir/) &nbsp;|&nbsp; [LinkedIn &middot; Waqas Karim](https://www.linkedin.com/in/waqaskarim/) &nbsp;|&nbsp; [Networkwalks Academy](https://www.linkedin.com/company/networkwalks/)
+
+</div>
 
 ---
 
